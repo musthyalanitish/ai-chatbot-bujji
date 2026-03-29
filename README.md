@@ -1,36 +1,138 @@
-# ai-chatbot-bujji
-AI-powered chatbot using Gemini API with real-time weather integration and natural language responses.
-# 🤖 AI Chatbot – BUJJI
+# Instructions
 
-An intelligent AI chatbot built using Gemini API that provides human-like conversational responses along with real-time weather updates.
+## Download
 
-## 🚀 Features
-- Natural language conversation using LLM (Gemini API)
-- Real-time weather updates via API integration
-- Context-aware responses using prompt engineering
-- Input validation and error handling
-- User-friendly interface
+Download the package from GitHub
 
-## 🛠 Tech Stack
-- Python
-- Gemini API (LLM)
-- REST APIs
-- JSON
+```shell
+git clone https://github.com/coderaidershaun/chatbot-conversation-jarvis.git chatbot
+```
 
-## 📌 How It Works
-The chatbot processes user input and sends it to the Gemini API to generate intelligent responses. It also integrates with a weather API to fetch real-time weather data based on user queries.
+## Setup backend
 
-## ▶️ How to Run
-1. Clone the repository
-2. Install required libraries
-3. Add your API keys
-4. Run the Python file
+Change directory into backend
 
-## 📈 Future Improvements
-- Add voice interaction
-- Deploy as a web application
-- Improve UI/UX design
+```shell
+cd chatbot/backend
+```
 
----
+### Setup virtual environment
 
-⭐ If you like this project, give it a star!
+Create a Virtual Environment
+
+```shell
+python3 -m venv venv
+```
+
+Activate Virtual Environment (MAC)
+
+```shell
+source venv/bin/activate
+```
+
+Activate Virtual Environment (Windows)
+
+```shell
+source venv/Scripts/activate
+```
+
+Upgrade PIP
+
+```shell
+pip3 install --upgrade pip
+```
+
+### Install Python packages
+
+Install required Python packages
+
+```shell
+pip3 install openai python-decouple fastapi "uvicorn[standard]" python-multipart
+```
+
+Or use this alternative method (although this alternative method might not work if using Windows)
+
+```shell
+pip3 install -r requirements.txt
+```
+
+### Create Environment Variables
+
+Create your .env file
+
+```shell
+touch .env
+```
+
+Update your .env file with the following. You can see your .env by typing sudo nano .env or just by clicking on the file if you are in VS Code.
+
+```plain
+OPEN_AI_ORG=enter-you-key-here
+OPEN_AI_KEY=enter-you-key-here
+ELEVEN_LABS_API_KEY=enter-you-key-here
+```
+
+### Start your backend server
+
+Start your backend server
+
+```shell
+uvicorn main:app
+```
+
+Alternatively, you can ensure your server resets every time you make a change by typing:
+
+```shell
+uvicorn main:app -- reload
+```
+
+You can check your server is working by going to:
+
+```plain
+http://localhost:8000/health
+```
+
+## Setup frontend
+
+Change directory into frontend
+
+```shell
+cd ..
+cd chatbot/frontend
+```
+
+Install packages
+
+```shell
+yarn --exact
+```
+
+Build application
+
+```shell
+yarn build
+```
+
+Start server in dev mode
+
+```shell
+yarn dev
+```
+
+You can check your dev server is working by going to:
+
+```plain
+http://localhost:5173/health
+```
+
+or alternatively in live mode:
+
+```shell
+yarn start
+```
+
+You can check your live server is working by going to:
+
+```plain
+http://localhost:4173/health
+```
